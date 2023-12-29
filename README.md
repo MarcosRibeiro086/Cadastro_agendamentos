@@ -8,7 +8,7 @@ Este projeto tem como objetivo o exercícios de práticas de programação full-
 3. Realizar agendamento de atendimento com data/hora, paciente e profissional de saúde;
   a. Não deve ser permitido o registro de dois ou mais atendimentos com conflito de data/hora, paciente ou profissional de saúde.
 
-INSTALAÇAO:
+INSTALAÇÃO:
 
 Todas as bibliotecas estão instaladas localmente no repositório.
 Use o comando git clone "link.do.repositorio.git" para clonar o projeto.
