@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% block page_title %}
+  Lista de Pacientes
+{% endblock page_title %}
+{% block content %}
+        <h1>Lista de Pacientes</h1>
+        {% if paciente_list %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Altura</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Ação</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for paciente in paciente_list %}
+                        <tr>
+                            <th scope="row">{{paciente.pk}}</th>
+                            <td>{{paciente.nome}}</td>
+                            <td>{{paciente.altura}}</td>
+                            <td>{{paciente.peso}}</td>
+                            <td>{{paciente.sexo}}</td>
+                            <!-- <td>{{paciente.finishedAt|default:"-"}}</td> -->
+                            <td>
+                                <a href="{% url 'paciente_update' pk=paciente.pk %}" class= "btn btn-primary btn-sm "> Editar</a>
+                                <a href="{% url 'paciente_delete' pk=paciente.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+            {% else %}
+            <p>Não há pacientes cadastrados</p>
+            {% endif %}
+            <a href="{% url 'paciente_create'%}" class="btn btn-primary">Nova cadastro</a>
+{% endblock content %}

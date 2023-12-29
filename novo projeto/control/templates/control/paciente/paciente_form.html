@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% block page_title %}
+    Cadastrar paciente
+{% endblock page_title %}
+{% load crispy_forms_tags %}
+{% block content %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form | crispy}}
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+{%endblock content%}

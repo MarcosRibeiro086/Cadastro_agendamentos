@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="text-center">
+    <h2>Bem-vindo ao sistema DAM de agendamentos</h2>
+    
+    <div class="btn-group" role="group" aria-label="Opções">
+      <a href="{% url 'atendimento_list' %}" class="btn btn-info">Agendamentos</a>
+      <a href="{% url 'paciente_list' %}" class="btn btn-info">Pacientes</a>
+      <a href="{% url 'profissional_list' %}" class="btn btn-info">Profissionais</a>
+    </div>
+  </div>
+{% endblock %}

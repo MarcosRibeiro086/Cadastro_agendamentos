@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+{% block page_title %}
+  Lista de Atendimentos
+{% endblock page_title %}
+{% block content %}
+        <h1>Lista de Atendimentos</h1>
+        {% if atendimento_list %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Data e hora</th>
+                    <th scope="col">Paciente</th>
+                    <th scope="col">Profissional</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for atendimento in atendimento_list %}
+                        <tr>
+                            <th scope="row">{{atendimento.pk}}</th>
+                            <td>{{atendimento.data_hora}}</td>
+                            <td>{{atendimento.paciente.nome}}</td>
+                            <td>{{atendimento.profissional_saude.nome}}</td>
+                            <td>
+                                <a href="{% url 'atendimento_update' pk=atendimento.pk %}" class= "btn btn-primary btn-sm "> Editar</a>
+                                <a href="{% url 'atendimento_delete' pk=atendimento.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+            {% else %}
+            <p>Não há atendimentos cadastrados</p>
+            {% endif %}
+            <a href="{% url 'atendimento_create'%}" class="btn btn-primary">Novo cadastro</a>
+{% endblock content %}
